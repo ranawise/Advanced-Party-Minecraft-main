@@ -69,5 +69,3 @@ src/main/resources/config.yml
 ```
 
 Tune party limits, chat behavior, GUI settings, and gameplay options from this file.
-
-```
