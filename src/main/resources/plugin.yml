@@ -1,0 +1,31 @@
+name: AdvancedParty
+version: '${project.version}'
+main: com.ranawise.AdvancedParty
+api-version: '1.21'
+author: ranawise
+description: Modular party system with GUI, buffs, and developer API.
+load: POSTWORLD
+
+commands:
+  party:
+    description: Main party command. Run /party for help or to open the GUI.
+    usage: /party [create|invite|join|leave|disband|kick|transfer|chat|ff|help]
+    aliases: [p]
+  partychat:
+    description: Send a message to your party.
+    usage: /pc <message>
+    aliases: [pc]
+
+permissions:
+  party.use:
+    description: Base permission to use the party system.
+    default: true
+  party.create:
+    description: Allows creating parties.
+    default: true
+  party.invite:
+    description: Allows inviting players to parties.
+    default: true
+  party.admin:
+    description: Bypass party limits and access admin features.
+    default: op

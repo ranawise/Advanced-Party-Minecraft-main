@@ -1,0 +1,95 @@
+# =====================================================================
+# AdvancedParty configuration
+# =====================================================================
+
+# Maximum number of members per party (including the leader).
+# Players with the "party.admin" permission can bypass this limit.
+max-party-size: 5
+
+# How long invitations remain valid, in seconds.
+invite-expiry-seconds: 60
+
+# Cooldown (in seconds) between invites a single player may send.
+invite-cooldown-seconds: 5
+
+# ---------------------------------------------------------------------
+# Buff system
+# ---------------------------------------------------------------------
+# When enough party members are within `radius` blocks of each other,
+# they gain the configured potion effects. Effects refresh every
+# `interval-ticks` ticks (20 ticks = 1 second).
+buffs:
+  enabled: true
+  radius: 16
+  # Minimum number of nearby party members (including the player) to
+  # qualify for the buff. Default 2 means "you + at least one ally".
+  min-members-nearby: 2
+  interval-ticks: 60
+  # Each entry: TYPE, amplifier (0 = level I), duration-ticks
+  effects:
+    - type: SPEED
+      amplifier: 0
+      duration-ticks: 100
+    - type: REGENERATION
+      amplifier: 0
+      duration-ticks: 100
+
+# ---------------------------------------------------------------------
+# Persistence
+# ---------------------------------------------------------------------
+# Storage backend: "yaml" (default) or "sqlite" (structure ready, see
+# data/SqlitePartyDataStore.java).
+storage:
+  type: yaml
+
+# ---------------------------------------------------------------------
+# HUD
+# ---------------------------------------------------------------------
+# Show a boss bar with party info to all party members.
+boss-bar:
+  enabled: true
+  color: BLUE
+  style: SOLID
+
+# ---------------------------------------------------------------------
+# Defaults applied to new parties
+# ---------------------------------------------------------------------
+defaults:
+  friendly-fire: false
+  public: false
+
+# ---------------------------------------------------------------------
+# Messages (supports & color codes)
+# ---------------------------------------------------------------------
+messages:
+  prefix: "&8[&bParty&8] &r"
+  no-permission: "&cYou do not have permission to do that."
+  player-only: "&cThis command can only be used by players."
+  unknown-subcommand: "&cUnknown subcommand. Try &f/party help&c."
+  not-in-party: "&cYou are not in a party."
+  already-in-party: "&cYou are already in a party."
+  not-leader: "&cOnly the party leader can do that."
+  party-created: "&aParty created. Invite friends with &f/party invite <player>&a."
+  party-disbanded: "&cThe party has been disbanded."
+  party-full: "&cThe party is full."
+  player-not-found: "&cPlayer not found or offline."
+  cannot-invite-self: "&cYou cannot invite yourself."
+  invite-cooldown: "&cYou are inviting too quickly. Try again in &f{seconds}s&c."
+  invite-sent: "&aInvite sent to &f{player}&a."
+  invite-received: "&e{player} &7invited you to their party. Type &f/party join {player} &7within &f{seconds}s&7."
+  invite-expired: "&7Invite from &f{player} &7expired."
+  invite-not-found: "&cYou have no pending invite from that player."
+  joined-party: "&a{player} &7joined the party."
+  left-party: "&7{player} &7left the party."
+  kicked-from-party: "&cYou were kicked from the party."
+  member-kicked: "&7{player} &7was kicked from the party."
+  ownership-transferred: "&aOwnership transferred to &f{player}&a."
+  friendly-fire-on: "&7Friendly fire is now &cON&7."
+  friendly-fire-off: "&7Friendly fire is now &aOFF&7."
+  ff-blocked: "&cYou cannot damage your party members."
+  chat-mode-on: "&7Party chat &aenabled&7. All your messages go to the party."
+  chat-mode-off: "&7Party chat &cdisabled&7."
+  chat-format: "&8[&bP&8] &f{player}&7: &f{message}"
+  help-header: "&8&m----&r &bAdvancedParty &8&m----"
+  help-line: "&f/{usage} &8- &7{description}"
+  boss-bar-title: "&bParty &7({size}/{max}) &8| &fLeader: &b{leader}"
