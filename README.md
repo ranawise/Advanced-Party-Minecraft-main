@@ -70,14 +70,4 @@ src/main/resources/config.yml
 
 Tune party limits, chat behavior, GUI settings, and gameplay options from this file.
 
-## Preview
-
-Add your plugin visuals here for a more polished GitHub page:
-
-- Screenshot placeholder: `docs/images/party-gui.png`
-- GIF placeholder: `docs/images/party-demo.gif`
-
-```md
-![Party GUI](docs/images/party-gui.png)
-![Party Demo](docs/images/party-demo.gif)
 ```
